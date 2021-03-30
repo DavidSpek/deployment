@@ -5,3 +5,6 @@ resources:
 - github.com/argoproj/argo-cd/manifests/ha/cluster-install?ref=release-2.0
 - argocd-cert.yaml
 - argocd-ingress.yaml
+
+patchesStrategicMerge:
+- configmap-patch.yaml

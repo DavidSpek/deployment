@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jupyter-web-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kubeflow/kubeflow
+    targetRevision: HEAD
+    path: components/crud-web-apps/jupyter/manifests/overlays/istio
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
